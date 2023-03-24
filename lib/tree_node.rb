@@ -1,5 +1,6 @@
 class PolyTreeNode
     #hi
+    #hi2
     def initialize(new_node, children = [])
         @value = new_node
         @parent = nil
