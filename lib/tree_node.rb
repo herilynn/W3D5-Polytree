@@ -1,19 +1,14 @@
 class PolyTreeNode
-    #hi
-    #hi2
-    def initialize(new_node, children = [])
-        @value = new_node
+    attr_accessor :value, :parent, :children
+    def initialize(value)
+        @value = value
         @parent = nil
-        @children = children
+        @children = []
     end
 
-    def parent
-        @parent
+    def parents=(node)
+        @parent = node 
+        node.children << self 
     end
-
-    def children
-        @children
-    end
-
 
 end
