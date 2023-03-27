@@ -48,8 +48,8 @@ class PolyTreeNode
 
     def dfs(target)
         return self if target == self.value
-        return nil if children.empty?
-        # if !children.empty?
+        #return nil if children.empty?
+        if !children.empty?
             self.children.each do |child|
                 # if child.value == target
                 #     return child 
@@ -58,8 +58,26 @@ class PolyTreeNode
                     return result if result != nil # = nil
                 # end
             end
-        # end
+        else
+            return nil
+        end
         return nil
+    end
+
+    def bfs(target)
+        return self if target == self.value
+        return nil if children.empty?
+        queue = []
+        queue.concat(self.children) # [b,c]
+        queue.each do |child|
+            if !child.children.empty?
+                queue.concat(child.children)
+            end
+        end
+        queue.each do |kid|
+            return kid if kid.value == target
+        end
+        return nil 
     end
 end
 
