@@ -47,16 +47,19 @@ class PolyTreeNode
     end
 
     def dfs(target)
-        return self if target == self
-        # if !self.children.empty?
-        #     self.children.each do |child|
-        #         if child == target
-        #             return child 
-        #         else
-        #             result = child.dfs(target)
-        #         end
-        #     end
+        return self if target == self.value
+        return nil if children.empty?
+        # if !children.empty?
+            self.children.each do |child|
+                # if child.value == target
+                #     return child 
+                # else
+                    result = child.dfs(target)
+                    return result if result != nil # = nil
+                # end
+            end
         # end
+        return nil
     end
 end
 
