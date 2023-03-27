@@ -1,4 +1,6 @@
 class PolyTreeNode
+
+    # include Searchable
     # attr_accessor :value, :parent, :children
     def initialize(value)
         @value = value
@@ -43,4 +45,31 @@ class PolyTreeNode
             raise 
         end
     end
+
+    def dfs(target)
+        return self if target == self
+        # if !self.children.empty?
+        #     self.children.each do |child|
+        #         if child == target
+        #             return child 
+        #         else
+        #             result = child.dfs(target)
+        #         end
+        #     end
+        # end
+    end
 end
+
+# module Searchable 
+#     def dfs(target)
+#         if !self.children.empty?
+#             self.children.each do |child|
+#                 if child == target
+#                     return child 
+#                 else
+#                     child.dfs(target)
+#                 end
+#             end
+#         end
+#     end
+# end
